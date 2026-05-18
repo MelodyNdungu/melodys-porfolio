@@ -1,5 +1,8 @@
 "use client";
 
+"use client";
+
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
@@ -11,6 +14,7 @@ interface ProjectCardProps {
   url: string;
   color: string;
   index: number;
+  screenshot?: string;
   mockContent?: React.ReactNode;
 }
 
@@ -21,8 +25,11 @@ export default function ProjectCard({
   url,
   color,
   index,
+  screenshot,
   mockContent,
 }: ProjectCardProps) {
+  const [imgError, setImgError] = useState(false);
+  const [imgLoaded, setImgLoaded] = useState(false);
   const isEven = index % 2 === 0;
 
   return (
@@ -60,24 +67,48 @@ export default function ProjectCard({
 
         {/* Preview area */}
         <div
-          className={`relative h-48 sm:h-64 overflow-hidden ${color}`}
+          className="relative h-48 sm:h-64 overflow-hidden"
           style={{ background: color }}
         >
           {mockContent ?? (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="grid grid-cols-3 gap-3 p-6 w-full max-w-xs opacity-60">
-                {[...Array(9)].map((_, i) => (
-                  <div
-                    key={i}
-                    className={`rounded-lg bg-white/20 ${
-                      i === 0 ? "col-span-3 h-10" : "h-14"
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
+            <>
+              {/* Skeleton shimmer shown while loading */}
+              {!imgLoaded && !imgError && screenshot && (
+                <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-white/10 via-white/20 to-white/10" />
+              )}
+
+              {/* Live screenshot */}
+              {screenshot && !imgError && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={screenshot}
+                  alt={`${title} preview`}
+                  onLoad={() => setImgLoaded(true)}
+                  onError={() => setImgError(true)}
+                  className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500 ${
+                    imgLoaded ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              )}
+
+              {/* Gradient placeholder — shown on error or while no screenshot */}
+              {(!screenshot || imgError) && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="grid grid-cols-3 gap-3 p-6 w-full max-w-xs opacity-60">
+                    {[...Array(9)].map((_, i) => (
+                      <div
+                        key={i}
+                        className={`rounded-lg bg-white/20 ${
+                          i === 0 ? "col-span-3 h-10" : "h-14"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
+            </>
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
         </div>
       </div>
 

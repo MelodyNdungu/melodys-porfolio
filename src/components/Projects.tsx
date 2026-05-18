@@ -4,6 +4,9 @@ import SectionTitle from "@/components/SectionTitle";
 import ProjectCard from "@/components/ProjectCard";
 import SectionDoodle from "@/components/SectionDoodle";
 
+const mshot = (url: string) =>
+  `https://api.microlink.io/?url=${encodeURIComponent(url)}&screenshot=true&meta=false&embed=screenshot.url`;
+
 const PROJECTS = [
   {
     title: "Cashia",
@@ -12,6 +15,7 @@ const PROJECTS = [
     tags: ["Fintech", "Payments", "Next.js", "TypeScript"],
     url: "https://www.cashia.com/",
     color: "linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%)",
+    screenshot: mshot("https://www.cashia.com/"),
   },
   {
     title: "Duka2",
@@ -20,6 +24,7 @@ const PROJECTS = [
     tags: ["E-Commerce", "SaaS", "Business Tools", "React"],
     url: "https://duka2.co.ke/",
     color: "linear-gradient(135deg, #065f46 0%, #10b981 50%, #34d399 100%)",
+    screenshot: mshot("https://duka2.co.ke/"),
   },
   {
     title: "Cashia Developer Docs",
@@ -28,6 +33,7 @@ const PROJECTS = [
     tags: ["Docs", "API", "Developer Experience", "MDX"],
     url: "https://developer.cashia.com/docs",
     color: "linear-gradient(135deg, #4c1d95 0%, #7c3aed 50%, #a78bfa 100%)",
+    screenshot: mshot("https://developer.cashia.com/docs"),
   },
   {
     title: "Cashia Customer Portal",
@@ -36,6 +42,7 @@ const PROJECTS = [
     tags: ["Dashboard", "UX", "Fintech", "React"],
     url: "https://customer.cashia.com/",
     color: "linear-gradient(135deg, #7c2d12 0%, #ea580c 50%, #fb923c 100%)",
+    screenshot: mshot("https://customer.cashia.com/"),
   },
 ];
 
@@ -52,7 +59,7 @@ export default function Projects() {
 
         <div className="space-y-20 mt-4">
           {PROJECTS.map((project, i) => (
-            <ProjectCard key={project.title} {...project} index={i} />
+            <ProjectCard key={project.title} {...project} index={i} screenshot={project.screenshot} />
           ))}
         </div>
       </div>

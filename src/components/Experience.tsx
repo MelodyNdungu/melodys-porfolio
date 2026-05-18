@@ -6,16 +6,16 @@ import SectionTitle from "@/components/SectionTitle";
 import SectionDoodle from "@/components/SectionDoodle";
 
 const events = [
-  {
-    year: "2026",
-    icon: Star,
-    title: "Full-Stack Engineer",
-    company: "Cashia",
-    description:
-      "Leading development of the customer portal, payment infrastructure, and developer API. Shipping features used by thousands of merchants across East Africa.",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "Node.js"],
-    highlight: true,
-  },
+//   {
+//     year: "2026",
+//     icon: Star,
+//     title: "Full-Stack Engineer",
+//     company: "Cashia",
+//     description:
+//       "Leading development of the customer portal, payment infrastructure, and developer API. Shipping features used by thousands of merchants across East Africa.",
+//     tags: ["Next.js", "TypeScript", "PostgreSQL", "Node.js"],
+//     highlight: true,
+//   },
   {
     year: "2026",
     icon: Rocket,
@@ -78,7 +78,7 @@ export default function Experience() {
               const Icon = event.icon;
               return (
                 <motion.div
-                  key={event.title}
+                  key={`${event.title}-${i}`}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
