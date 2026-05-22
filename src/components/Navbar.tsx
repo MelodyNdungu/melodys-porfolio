@@ -58,7 +58,6 @@ export default function Navbar() {
         )}
       >
         <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          {/* Logo */}
           <Link
             href="#"
             className="flex items-center gap-2.5 group"
@@ -73,7 +72,6 @@ export default function Navbar() {
             </motion.span>
           </Link>
 
-          {/* Desktop nav */}
           <ul className="hidden md:flex items-center gap-6">
             {NAV_ITEMS.map(({ label, href }) => (
               <li key={href}>
@@ -98,7 +96,6 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Actions */}
           <div className="flex items-center gap-2">
             <button
               onClick={toggle}
@@ -129,8 +126,6 @@ export default function Navbar() {
                 )}
               </AnimatePresence>
             </button>
-
-            {/* Mobile burger */}
             <button
               className="md:hidden w-9 h-9 flex items-center justify-center rounded-full text-[var(--muted)] hover:text-[var(--foreground)] hover:bg-[var(--card)] border border-transparent hover:border-[var(--card-border)] transition-all"
               onClick={() => setMobileOpen((o) => !o)}
@@ -142,7 +137,6 @@ export default function Navbar() {
         </nav>
       </motion.header>
 
-      {/* Mobile drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div

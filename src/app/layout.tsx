@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     "Personal portfolio of Melody — a full-stack software engineer specialising in fintech, scalable web apps, and great user experiences.",
   keywords: ["software engineer", "full-stack", "fintech", "Next.js", "TypeScript", "portfolio"],
   authors: [{ name: "Melody" }],
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   openGraph: {
     title: "Melody | Full-Stack Software Engineer",
     description: "Building fintech and digital products that scale.",

@@ -72,12 +72,10 @@ export default function ProjectCard({
         >
           {mockContent ?? (
             <>
-              {/* Skeleton shimmer shown while loading */}
               {!imgLoaded && !imgError && screenshot && (
                 <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-white/10 via-white/20 to-white/10" />
               )}
 
-              {/* Live screenshot */}
               {screenshot && !imgError && (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
@@ -91,7 +89,6 @@ export default function ProjectCard({
                 />
               )}
 
-              {/* Gradient placeholder — shown on error or while no screenshot */}
               {(!screenshot || imgError) && (
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="grid grid-cols-3 gap-3 p-6 w-full max-w-xs opacity-60">
@@ -111,8 +108,6 @@ export default function ProjectCard({
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
         </div>
       </div>
-
-      {/* Text content */}
       <div
         className={`space-y-4 ${!isEven ? "lg:col-start-1 lg:row-start-1" : ""}`}
       >

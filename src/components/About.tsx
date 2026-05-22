@@ -11,6 +11,7 @@ import {
   Mountain,
   Tent,
   TreePine,
+  Gamepad2,
 } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
 import SectionDoodle from "@/components/SectionDoodle";
@@ -36,6 +37,7 @@ const interests = [
   { icon: Tent, text: "Camping under open skies, no Slack" },
   { icon: TreePine, text: "Forest trails beat noisy playlists" },
   { icon: Coffee, text: "Campfire coffee hits different" },
+  { icon: Gamepad2, text: "Gaming — unwinding with a good storyline" },
 ];
 
 const fadeInUp = {

@@ -35,8 +35,6 @@ export default function SectionDoodle({ variant }: SectionDoodleProps) {
     </div>
   );
 }
-
-/* ── Hero — mountain range horizon ─────────────────────────────────────── */
 function HeroDoodle() {
   return (
     <>

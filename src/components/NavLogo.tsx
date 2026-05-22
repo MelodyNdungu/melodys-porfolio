@@ -24,7 +24,6 @@ export default function NavLogo({ size = 34, className = "" }: NavLogoProps) {
       transition={{ type: "spring", stiffness: 340, damping: 18 }}
       aria-label="Melody logo"
     >
-      {/* Background squircle */}
       <rect
         x="1"
         y="1"
@@ -34,8 +33,6 @@ export default function NavLogo({ size = 34, className = "" }: NavLogoProps) {
         fill="var(--accent)"
       />
 
-      {/* "M" letterform — two strokes meeting at a centre valley */}
-      {/* Left leg */}
       <path
         d="M8 24 L8 11"
         stroke="white"

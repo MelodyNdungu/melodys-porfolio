@@ -34,10 +34,10 @@ const SOCIALS = [
   },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/in/",
+    href: "https://www.linkedin.com/in/melody-muthoni-5292a619b/",
     Icon: LinkedinIcon,
     color: "hover:bg-blue-600 hover:text-white hover:border-blue-600",
-    label: "Melody",
+    label: "Melody Muthoni",
   },
   {
     name: "Email",

@@ -9,11 +9,12 @@ import SectionDoodle from "@/components/SectionDoodle";
 const ROLES = [
   "Full-Stack Engineer",
   "Fintech Builder",
-  "Mountain Hiker 🏔",
-  "TypeScript Lover",
-  "Camping Enthusiast ⛺",
   "API Craftsman",
+  "TypeScript Lover",
+  "Mountain Hiker 🏔",
+  "Camping Enthusiast ⛺",
   "Trail Runner 🌲",
+  "Gamer 🎮",
 ];
 
 function TypingEffect() {
